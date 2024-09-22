@@ -1,0 +1,20 @@
+package relational_database;
+
+/*
+ * Install windowBuilder (Current) 
+ * Help -> Eclipse Marketplace -> WindowBuilder -> Install 'WindowBuilder Current'.
+ */
+public class Main {
+	public static void main(String args[]) {
+		Database database = new Database();
+		database.connection("chethangc", "17071998", "test_database");
+		// Querying the existing data
+		database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable");
+		database.printResultSet();
+		// with WHERE condition
+		database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable WHERE slno=1");
+		database.printResultSet();
+		
+		database.insertRow("INSERT INTO javajdbc.jdbcconnectiontable VALUES ('Alonegc', '26', 'single')");
+	}
+}

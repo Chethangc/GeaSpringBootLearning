@@ -1,0 +1,89 @@
+package relational_database;
+import java.lang.reflect.Array;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/*
+ * Download connector from the below URL
+ * https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.0.0.tar.gz
+ */
+public class Database {
+	
+	Connection connection = null;
+	
+	Database() {
+		this.loadDriver();
+	}
+	
+	public void loadDriver() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Loaded the JDBC driver successfully.");
+		} catch (ClassNotFoundException exception) {
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Loading driver failed:", exception);
+		}
+	}
+
+	public void connection(String username, String password, String database)  {
+	  try {
+		  this.connection = DriverManager.getConnection("jdbc:mysql://mysql8-host/"+database,
+				  										username, password);
+		  System.out.println("Connection Successful");
+	  } catch (SQLException exception) {
+		  Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "SQLException: Database connection failed:", exception);
+	  } catch (Exception exception) {
+		  Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Exception: Database connection failed:", exception);
+	  }
+	}
+	
+	/* This function is used to print the queried resultSet.
+	 */
+	public void printResultSet(ResultSet resultSet) {
+		try {
+			ResultSetMetaData metaData = resultSet.getMetaData();
+			int coloumnCount = metaData.getColumnCount();
+			while(resultSet.next()) {
+				String output="";
+				for(int i=1; i<=coloumnCount; i++) {
+					output += metaData.getColumnName(i) + ": " + resultSet.getString(i) + ", ";
+				}
+				System.out.println(output);
+			}
+		} 
+		catch (SQLException exception) {
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "SQLException: print result set failed:", exception);
+		}
+		catch (Exception exception) {
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Exception: print result set failed:", exception);
+		}
+	}
+	
+	public void insertRow(Object[] values, String tableName) {
+		try {
+			Statement statement = this.connection.createStatement();
+			String insertString = "INSERT INTO "+ tableName +" VALUES({%s})";
+			String valueString = "";
+			for(Object value :values) {
+				valueString += value.toString() + ",";
+			}
+			valueString = valueString.replaceAll(",$", "");
+			statement.execute(insertString);
+		} catch (SQLException exception) {
+			// TODO Auto-generated catch block
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "SQLException: insert command failed:", exception);
+		}
+	}
+	
+	
+	
+	public void deleteRow() {
+		
+	}
+
+}

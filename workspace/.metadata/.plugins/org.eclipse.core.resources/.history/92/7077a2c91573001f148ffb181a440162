@@ -1,0 +1,18 @@
+package relational_database;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Main {
+	public static void main(String args[]) {
+		Database database = new Database();
+		database.connection("chethangc", "17071998", "test_database");
+		database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable");
+		database.printResultSet();
+		
+		database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable WHER slno=1");
+		database.printResultSet();
+//		Array coloumnData = database.queryColoumn(result, "Name");
+//		System.out.println(coloumnData);
+	}
+}

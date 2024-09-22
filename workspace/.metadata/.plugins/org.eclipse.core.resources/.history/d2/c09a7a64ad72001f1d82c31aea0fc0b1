@@ -1,0 +1,36 @@
+package relational_database;
+
+public class Database {
+	
+	Database() {
+		try {
+			Class.forName("");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}	
+	}
+
+	public void connection(String database, String password)  {
+		
+	}
+	
+	public void insertRow() {
+		
+	}
+	public void deleteRow() {
+		
+	}
+	
+	public void queryRow() {
+		
+	}
+	
+	public void queryColoumn() {
+		
+	}
+	
+	public void loadDriver() {
+		
+	}
+
+}

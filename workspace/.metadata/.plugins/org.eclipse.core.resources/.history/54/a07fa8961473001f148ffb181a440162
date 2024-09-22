@@ -1,0 +1,89 @@
+package relational_database;
+import java.lang.reflect.Array;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/*
+ * Download connector from the below URL
+ * https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.0.0.tar.gz
+ */
+public class Database {
+	
+	Connection connection = null;
+	ResultSet result = null;
+	
+	Database() {
+		this.loadDriver();
+	}
+	
+	public void loadDriver() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Loaded the JDBC driver successfully.");
+		} catch (ClassNotFoundException exception) {
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Loading driver failed:", exception);
+		}
+	}
+
+	public void connection(String username, String password, String database)  {
+	  try {
+		  this.connection = DriverManager.getConnection("jdbc:mysql://mysql8-host/"+database,
+				  											  username,
+				  											  password);
+		  System.out.println("Connection Successful");
+	  } catch (SQLException exception) {
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "SQLException: Database connection failed:", exception);
+	  } catch (Exception exception) {
+		  Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Exception: Database connection failed:", exception);
+	  }
+	}
+	
+	/* This function is used to query the row from the database table.
+	 */
+	public ResultSet queryResultSet(String statementString) {
+		try {
+			Statement statement = this.connection.createStatement();
+			this.result = statement.executeQuery(statementString);
+		}  catch (SQLException exception) {
+				Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "SQLException: Quering result set failed:", exception);
+		   } catch (Exception exception) {
+				Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Exception: Quering result set failed:", exception);
+			 }
+		return this.result;
+	}
+	
+	
+	public void printResultSet() {
+		try {
+		while(this.result.next()) {
+			
+		}
+		} catch (SQLException exception) {
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "SQLException: Quering result set failed:", exception);
+		  } catch (Exception exception) {
+				Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Exception: Quering result set failed:", exception);
+			}
+		
+	}
+	
+	public void insertRow() {
+		
+	}
+	
+	public void deleteRow() {
+		
+	}
+	
+	public void queryColoumn(ResultSet result, String coloumnName) {
+		
+		
+	}
+	
+	
+
+}

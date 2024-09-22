@@ -1,0 +1,12 @@
+package relational_database;
+
+import java.sql.ResultSet;
+
+public class Main {
+	public static void main(String args[]) {
+		Database database = new Database();
+		database.connection("chethangc", "17071998", "test_database");
+		ResultSet result = database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable");
+		Array coloumnData = database.queryColoumn(result, "Name");
+	}
+}

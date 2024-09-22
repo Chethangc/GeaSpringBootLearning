@@ -1,0 +1,26 @@
+package relational_database;
+
+import java.sql.Array;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Main {
+	public static void main(String args[]) {
+		Database database = new Database();
+		database.connection("chethangc", "17071998", "test_database");
+		ResultSet result = database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable");
+		try {
+		while(result.next()) {
+			String name = result.getString("Name");
+			String age = result.getString("age");
+			System.out.println(name);
+			System.out.println(age);
+		}
+		}
+		catch(SQLException exception) {
+			exception.printStackTrace();
+		}
+//		Array coloumnData = database.queryColoumn(result, "Name");
+//		System.out.println(coloumnData);
+	}
+}

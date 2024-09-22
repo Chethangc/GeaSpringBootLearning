@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ENTRY timestamp='04:12:56'>GRANT ALL PRIVILEGES ON *.* TO 'chethangc'@'%'</ENTRY>
+<ENTRY timestamp='~'>FLUSH PRIVILEGES</ENTRY>

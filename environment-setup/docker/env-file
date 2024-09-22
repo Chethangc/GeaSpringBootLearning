@@ -1,0 +1,7 @@
+export MYSQL_USER=chethangc
+export MYSQL_PASSWORD=17071998
+export MYSQLWORKBENCHDISPLAY=:0
+export ECLIPSEDISPLAY=:0
+export ECLIPSEWORKSPACE=../workspace
+export MYSQLWORKBENCHWORKSPACE=./docker/mysql-workbench/sql/
+export MYSQLWORKBENCHMYSQL=./docker/mysql-workbench/.mysql

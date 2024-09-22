@@ -1,0 +1,67 @@
+# NOTE: Before running this file please source the environment file for the docker
+# source docker/env-file
+
+version: '3'
+
+services:
+  mysql-host:
+    image: mysql:8.0
+    container_name: mysql8-host
+    hostname: mysql8-host
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_database
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+    - ./docker/mysql/data:/var/lib/mysql
+    - ./docker/mysql/config/my.cnf:/etc/mysql/conf.d/my.cnf
+    - ./docker/mysql/sql:/docker-entrypoint-initdb.d
+    ports:
+    - 3306:3306
+
+  mysql-workbench-host:
+    build:
+      context: .
+      dockerfile: ./docker/mysql-workbench/Dockerfile
+    image: mysql-workbench
+    hostname: mysql-workbench-host
+    container_name: mysql-workbench-host
+    environment:
+      DISPLAY: ${MYSQLWORKBENCHDISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${MYSQLWORKBENCHWORKSPACE}:/home/mysqlworkbenchuser/workspace
+      - ${MYSQLWORKBENCHMYSQL}:/home/mysqlworkbenchuser/.mysql
+    command: mysql-workbench
+
+  eclipse-ide-host:
+    build:
+      context: .
+      dockerfile: ./docker/eclipse-ide/Dockerfile
+    image: eclipse-ide
+    hostname: eclipse-ide-host
+    container_name: eclipse-ide-host
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${ECLIPSEWORKSPACE}:/home/eclipseuser/eclipse-workspace/
+    environment: 
+      DISPLAY: ${ECLIPSEDISPLAY}
+    command: /opt/eclipse/eclipse -debug
+
+#  intellij-ide:
+#    build:
+#      context: ./docker/intellij/
+#      dockerfile: ./docker/intellij/Dockerfile
+#    image: intellij-IDE
+#    hostname: intelij-IDE-host
+#    container_name: intelij-IDE-host
+#    environment:
+#      ADDED: 1
+#    command: intellij
+#    ports:
+#      - 3305:3007
+
+

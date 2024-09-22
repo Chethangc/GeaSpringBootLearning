@@ -1,0 +1,90 @@
+package relational_database;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Jframe extends JFrame {
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JLabel lblName;
+	private JTextField Name;
+	private JLabel lblAge;
+	private JTextField Age;
+	private JLabel lblOccupation;
+	private JTextField Occupation;
+	private JButton Insert;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Jframe frame = new Jframe();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Jframe() {
+		Database database = new Database();
+		database.connection("chethangc", "17071998", "test_database");
+		
+		// Querying the existing data
+		database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable");
+		database.printResultSet();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) contentPane.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		
+		lblName = new JLabel("Name");
+		contentPane.add(lblName);
+		
+		Name = new JTextField();
+		contentPane.add(Name);
+		Name.setColumns(30);
+		
+		lblAge = new JLabel("Age");
+		contentPane.add(lblAge);
+		
+		Age = new JTextField();
+		Age.setColumns(30);
+		contentPane.add(Age);
+		
+		lblOccupation = new JLabel("Occupation");
+		contentPane.add(lblOccupation);
+		
+		Occupation = new JTextField();
+		Occupation.setColumns(30);
+		contentPane.add(Occupation);
+		
+		Insert = new JButton("Insert Data");
+		Insert.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		contentPane.add(Insert);
+	}
+
+}

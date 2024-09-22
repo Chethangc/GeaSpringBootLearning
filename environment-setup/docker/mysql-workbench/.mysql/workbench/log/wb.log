@@ -1,0 +1,34 @@
+04:16:00 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /usr/share/mysql-workbench
+	plugin path: /usr/lib/mysql-workbench/plugins
+	struct path: /usr/share/mysql-workbench/grt
+	module path: /usr/lib/mysql-workbench/modules
+	library path: /usr/share/mysql-workbench/libraries
+	user data dir: /home/mysqlworkbenchuser/.mysql/workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+04:16:00 [INF][      WBContext]: WbContext::init
+04:16:02 [INF][            WBA]: Looking for extension modules for WBA...
+04:16:02 [INF][            WBA]: 0 extension modules found
+04:16:03 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+04:16:03 [WRN][            grt]: /home/mysqlworkbenchuser/.mysql/workbench/connections.xml:25: link 'baae0c9c-7898-11ef-b9dc-0242ac120003' <object GrtObject> key=owner could not be resolved
+04:16:03 [WRN][            grt]: /home/mysqlworkbenchuser/.mysql/workbench/server_instances.xml:12: link 'baae0c9c-7898-11ef-b9dc-0242ac120003' <object GrtObject> key=owner could not be resolved
+04:16:03 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+04:16:03 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Linux/Unix version 8.0.38 CE build 4270059 (64 bit)
+	Configuration Directory: /home/mysqlworkbenchuser/.mysql/workbench
+	Data Directory: /usr/share/mysql-workbench
+	Cairo Version: 1.18.0
+	OS:  x86_64
+	CPU: 8x Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz (2111.794MHz) - 3.75GiB RAM
+No video adapter info available
+	Fips mode enabled: no
+
+04:16:03 [WRN][       WBModule]: OS not found on supported OS list. OS string: ' x86_64'
+04:16:06 [INF][SQL Editor Form]: Opened connection 'mysql8hostchethangc' to MySQL Community Server - GPL version 8.0.39
+04:16:10 [INF][SQL Editor Form]: Opened connection 'mysql8root' to MySQL Community Server - GPL version 8.0.39

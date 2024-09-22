@@ -1,0 +1,9 @@
+package relational_database;
+
+public class Main {
+	public static void main(String args[]) {
+		Database database = new Database();
+		database.connection("root", "root", "test_database");
+		System.out.println("This is main");
+	}
+}

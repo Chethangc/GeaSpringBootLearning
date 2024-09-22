@@ -1,0 +1,63 @@
+04:11:21 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: /usr/share/mysql-workbench
+	plugin path: /usr/lib/mysql-workbench/plugins
+	struct path: /usr/share/mysql-workbench/grt
+	module path: /usr/lib/mysql-workbench/modules
+	library path: /usr/share/mysql-workbench/libraries
+	user data dir: /home/mysqlworkbenchuser/.mysql/workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+04:11:21 [INF][      WBContext]: WbContext::init
+04:11:23 [INF][            WBA]: Looking for extension modules for WBA...
+04:11:23 [INF][            WBA]: 0 extension modules found
+04:11:23 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+04:11:23 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+04:11:23 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Linux/Unix version 8.0.38 CE build 4270059 (64 bit)
+	Configuration Directory: /home/mysqlworkbenchuser/.mysql/workbench
+	Data Directory: /usr/share/mysql-workbench
+	Cairo Version: 1.18.0
+	OS:  x86_64
+	CPU: 8x Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz (2111.794MHz) - 3.75GiB RAM
+No video adapter info available
+	Fips mode enabled: no
+
+04:11:23 [WRN][       WBModule]: OS not found on supported OS list. OS string: ' x86_64'
+04:12:34 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:12:34 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:12:42 [INF][    WQE backend]: User cancelled connection
+04:12:42 [INF][      WBContext]: Connection to mysql8hostchethangc cancelled by user: Cancelled
+04:12:43 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'root'@'172.18.0.3' (using password: NO)
+04:12:43 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'root'@'172.18.0.3' (using password: NO)
+04:12:45 [INF][SQL Editor Form]: Opened connection 'mysql8root' to MySQL Community Server - GPL version 8.0.39
+04:12:46 [INF][  column_widths]: Initializing column width cache for mysql8root
+04:12:46 [INF][          Admin]: Auto-created dummy instance profile for remote connection mysql8root
+04:12:56 [ERR][ sqlide-history]: Can't open SQL history file /home/mysqlworkbenchuser/.mysql/workbench/sql_history/2024-09-22
+04:13:02 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'chethangc'@'172.18.0.3' (using password: NO)
+04:13:02 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'chethangc'@'172.18.0.3' (using password: NO)
+04:13:05 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:13:05 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:13:05 [ERR][    WQE backend]: Got an exception during connection: Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:13:05 [ERR][SQL Editor Form]: SQL editor could not be connected: Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:13:05 [ERR][SQL Editor Form]: Your connection attempt failed for user 'chethangc' to the MySQL server at mysql8-host:3306:
+  Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+
+Please:
+1 Check that MySQL is running on address mysql8-host
+2 Check that MySQL is reachable on port 3306 (note: 3306 is the default, but this can be changed)
+3 Check the user chethangc has rights to connect to mysql8-host from your address (MySQL rights define what clients can connect to the server and from which machines) 
+4 Make sure you are both providing a password if needed and using the correct password for mysql8-host connecting from the host address you're connecting from
+04:13:09 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'chethangc'@'172.18.0.3' (using password: NO)
+04:13:09 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'chethangc'@'172.18.0.3' (using password: NO)
+04:13:10 [INF][    WQE backend]: User cancelled connection
+04:13:10 [INF][      WBContext]: Connection to mysql8hostchethangc cancelled by user: Cancelled
+04:13:57 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:13:57 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'chethangc'@'172.18.0.3' (using password: YES)
+04:14:02 [INF][SQL Editor Form]: Opened connection 'mysql8hostchethangc' to MySQL Community Server - GPL version 8.0.39
+04:14:02 [INF][  column_widths]: Initializing column width cache for mysql8hostchethangc
+04:14:08 [INF][SQL Editor Form]: Opened connection 'mysql8hostchethangc' to MySQL Community Server - GPL version 8.0.39

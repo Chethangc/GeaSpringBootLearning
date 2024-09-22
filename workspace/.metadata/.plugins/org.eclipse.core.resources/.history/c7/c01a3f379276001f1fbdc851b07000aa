@@ -1,0 +1,37 @@
+package relational_database;
+
+import java.sql.ResultSet;
+
+/*
+ * Install windowBuilder (Current) 
+ * Help -> Eclipse Marketplace -> WindowBuilder -> Install 'WindowBuilder Current'.
+ */
+public class Main {
+	public static void main(String args[]) {
+		Database database = new Database();
+		String selectSQL = "SELECT * FROM javajdbc.jdbcconnectiontable";
+		database.connection("chethangc", "17071998", "test_database");
+		// QUERY
+		database.queryResultSet(selectSQL);
+		// with WHERE condition
+		database.queryResultSet("SELECT * FROM javajdbc.jdbcconnectiontable WHERE slno=1");
+		
+		// INSERT
+		System.out.println("\nBefore Inserting row \n");
+		database.queryResultSet(selectSQL);
+
+		database.insertRow("javajdbc.jdbcconnectiontable", "3, 'Alonegc', '26', 'single'");
+		
+		System.out.println("\nAfter Inserting row \n");
+		database.queryResultSet(selectSQL);
+		
+		// DELETE
+		System.out.println("\nBefore Deleting row \n");
+		database.queryResultSet(selectSQL);
+		
+		database.deleteRow("javajdbc.jdbcconnectiontable", "slno='3';");
+		
+		System.out.println("\nAfter Deleting row \n");
+		database.queryResultSet();
+	}
+}

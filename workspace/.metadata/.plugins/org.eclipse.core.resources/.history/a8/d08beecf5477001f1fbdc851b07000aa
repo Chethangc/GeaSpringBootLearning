@@ -1,0 +1,125 @@
+package relational_database;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class DatabaseOperation extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField slnoTextField;
+	private JTextField nameTextField;
+	private JTextField ageTextField;
+	private JLabel occupationLabel;
+	private JTextField occupationTextField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					DatabaseOperation frame = new DatabaseOperation();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public DatabaseOperation() {
+		Database database = new Database();
+		database.connection("chethangc", "17071998", "test_database");
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(200, 200, 450, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 374, 130);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel slnoLabel = new JLabel("SLNO");
+		slnoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		slnoLabel.setBounds(0, 0, 70, 15);
+		panel.add(slnoLabel);
+		
+		slnoTextField = new JTextField();
+		slnoTextField.setBounds(88, -2, 286, 19);
+		panel.add(slnoTextField);
+		slnoTextField.setColumns(10);
+		
+		nameTextField = new JTextField();
+		nameTextField.setColumns(10);
+		nameTextField.setBounds(88, 22, 286, 19);
+		panel.add(nameTextField);
+		
+		JLabel nameLabel = new JLabel("Name");
+		nameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		nameLabel.setBounds(0, 24, 70, 15);
+		panel.add(nameLabel);
+		
+		ageTextField = new JTextField();
+		ageTextField.setColumns(10);
+		ageTextField.setBounds(88, 45, 286, 19);
+		panel.add(ageTextField);
+		
+		JLabel ageLabel = new JLabel("Age");
+		ageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		ageLabel.setBounds(0, 47, 70, 15);
+		panel.add(ageLabel);
+		
+		occupationLabel = new JLabel("Occupation");
+		occupationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		occupationLabel.setBounds(0, 72, 70, 15);
+		panel.add(occupationLabel);
+		
+		occupationTextField = new JTextField();
+		occupationTextField.setColumns(10);
+		occupationTextField.setBounds(88, 70, 286, 19);
+		panel.add(occupationTextField);
+		
+		JButton insertButton = new JButton("Insert");
+		insertButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+                String slno = slnoTextField.getText();
+				String name = nameTextField.getText();
+				String age = ageTextField.getText();
+				String occupation = occupationTextField.getText();
+				String values= "'%s', '%s', '%s', '%s'";
+				database.insertRow("javajdbc.jdbcconnectiontable", String.format(values, slno, name,
+						                                                          age, occupation));
+				System.out.println("Inserted the values "+ values+"into table javajdbc.jdbcconnectiontable");
+			}
+		});
+		insertButton.setBounds(40, 105, 117, 25);
+		panel.add(insertButton);
+		
+		JButton btnNewButton_1 = new JButton("Update");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(193, 105, 117, 25);
+		panel.add(btnNewButton_1);
+	}
+}

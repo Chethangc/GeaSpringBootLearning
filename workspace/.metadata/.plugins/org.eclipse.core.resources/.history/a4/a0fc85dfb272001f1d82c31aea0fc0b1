@@ -1,0 +1,44 @@
+package relational_database;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/*
+ * Download connector from the below URL
+ * https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.0.0.tar.gz
+ */
+public class Database {
+	
+	Database() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Loaded the JDBC driver successfully.");
+		} catch (ClassNotFoundException exception) {
+			Logger.getLogger(Database.class.getName()).log(Level.SEVERE, "Load driver failed:", exception);
+		}	
+	}
+
+	public void connection(String database, String password)  {	
+      System.out.println("Connection Successful");
+	}
+	
+	public void insertRow() {
+		
+	}
+	
+	public void deleteRow() {
+		
+	}
+	
+	public void queryRow() {
+		
+	}
+	
+	public void queryColoumn() {
+		
+	}
+	
+	public void loadDriver() {
+		
+	}
+
+}

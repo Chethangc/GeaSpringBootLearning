@@ -1,0 +1,11 @@
+package relational_database;
+
+import Database;
+
+public class Main {
+	public void main(String args[]) {
+		Database database;
+		database.connection("test", "password");
+		
+	}
+}
